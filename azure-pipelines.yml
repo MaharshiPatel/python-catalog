@@ -10,9 +10,16 @@ pool:
   vmImage: ubuntu-latest
 strategy:
   matrix:
+    Python27:
+      python.version: '2.7'
+    Python35:
+      python.version: '3.5'
+    Python36:
+      python.version: '3.6'
     Python37:
       python.version: '3.7'
 
+steps:
 - task: ArtifactoryPip@1
   inputs:
     artifactoryService: 'Artifactory'
@@ -23,7 +30,6 @@ strategy:
     buildNumber: '$(Build.BuildNumber)'
     includeEnvVars: true
 
-steps:
 - task: JfrogCliV2@1
   inputs:
     jfrogPlatformConnection: 'platform v2'
