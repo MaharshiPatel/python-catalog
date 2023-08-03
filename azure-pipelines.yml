@@ -17,5 +17,5 @@ steps:
 - task: JfrogCliV2@1
   inputs:
     jfrogPlatformConnection: 'platform v2'
-    command: 'jf rt pip install'
+    command: 'jf rt pipi'
     workingDirectory: './'
