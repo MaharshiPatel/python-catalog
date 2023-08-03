@@ -29,11 +29,11 @@ jobs:
       run: jf rt ping
 
     - name: Step5- Run Python build
-        env:
-          SERVER_ID: RT-SAAS
-        run:
-          jf pipc --server-id-resolve=$SERVER_ID  --repo-resolve=alpha-pypi-virtual                                                                                                                                                                                                                                                                                                 
-          # Build the python project
-          jf pip install . --build-name my-build --build-number 1
+      env:
+        SERVER_ID: RT-SAAS
+      run: |
+        jf pipc --server-id-resolve=$SERVER_ID  --repo-resolve=alpha-pypi-virtual                                                                                                                                                                                                                                                                                                 
+        # Build the python project
+        jf pip install . --build-name my-build --build-number 1
           
             
