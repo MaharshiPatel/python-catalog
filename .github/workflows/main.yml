@@ -32,9 +32,9 @@ jobs:
       env:
         SERVER_ID: rtsaas
       run: |
-        jf pipc --server-id-resolve=$SERVER_ID --repo-resolve=alpha-pypi-virtual                                                                                                                                                                                                                                                                                                 
+        jf rt pipc --server-id-resolve=$SERVER_ID --repo-resolve=alpha-pypi-virtual                                                                                                                                                                                                                                                                                                 
         # Build the python project
-        jf pipi ./requirements.txt --build-name ${{github.run_name}} --build-number ${{github.run_number}}
+        jf rt pipi ./requirements.txt --build-name ${{github.run_name}} --build-number ${{github.run_number}}
         
     - name: Step7 - Publish to RT
       run: |
