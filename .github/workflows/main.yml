@@ -34,7 +34,7 @@ jobs:
       run: |
         jf rt pipc --server-id-resolve=$SERVER_ID --repo-resolve=alpha-pypi-virtual                                                                                                                                                                                                                                                                                                 
         # Build the python project
-        jf rt pipi ./requirements.txt --build-name ${{github.run_name}} --build-number ${{github.run_number}}
+        jf rt pip install ./requirements.txt --build-name test --build-number 3
         
     - name: Step7 - Publish to RT
       run: |
