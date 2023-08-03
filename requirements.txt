@@ -1,5 +1,5 @@
 PyYAML>3.11
 nltk
-numpy==1.8.0
+numpy
 pymongo==3.3.0
 django==3.2.20
