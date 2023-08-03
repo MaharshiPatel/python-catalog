@@ -45,3 +45,6 @@ jobs:
         #Publish build-info
         jf rt bp
             
+    - name: Build Scan
+      run: |
+        jf bs --fail=false
