@@ -14,16 +14,6 @@ strategy:
       python.version: '3.7'
 
 steps:
-- task: ArtifactoryPip@1
-  inputs:
-    artifactoryService: 'Artifactory'
-    command: 'install'
-    targetResolveRepo: 'alpha-pypi-virtual'
-    collectBuildInfo: true
-    buildName: '$(Build.DefinitionName)'
-    buildNumber: '$(Build.BuildNumber)'
-    includeEnvVars: true
-
 - task: JfrogCliV2@1
   inputs:
     jfrogPlatformConnection: 'platform v2'
