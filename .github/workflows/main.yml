@@ -35,6 +35,7 @@ jobs:
         jf pipc --server-id-resolve=$SERVER_ID --repo-resolve=alpha-pypi-virtual                                                                                                                                                                                                                                                                                                 
         # Build the python project
         jf rt pipi . --build-name test --build-number 3
+        jf rt pipi -r requirements.txt --module=jfrog-python-example
         
     - name: Step7 - Publish to RT
       run: |
