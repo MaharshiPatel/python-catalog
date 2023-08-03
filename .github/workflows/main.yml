@@ -1,0 +1,39 @@
+name: catalog-ci-job
+on:  
+  # push:
+  #  branches-ignore: [ master ]
+  pull_request:   
+    branches-ignore: [ master ]
+  # schedule: 
+  #  - cron:  '0 1 * * *'
+       
+jobs: 
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    env:
+      JF_ARTIFACTORY_1: ${{ secrets.JF_ARTIFACTORY_SECRET_1 }}
+      JFROG_BUILD_STATUS: PASS
+          
+    name: catalog-ci-job
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup JFrog CLI
+      uses: jfrog/setup-jfrog-cli@v2
+      env:
+        JF_ENV_1: ${{ secrets.JF_SECRET_ENV_1 }}
+        
+    - name: Ping JFrog CLI
+      run: jf rt ping
+
+    - name: Step5- Run Python build
+        env:
+          SERVER_ID: RT-SAAS
+        run:
+          jf pipc --server-id-resolve=$SERVER_ID  --repo-resolve=alpha-pypi-virtual                                                                                                                                                                                                                                                                                                 
+          # Build the python project
+          jf pip install . --build-name my-build --build-number 1
+          
+            
