@@ -1,4 +1,4 @@
-PyYAML>3.11
+PyYAML==5.2
 nltk
 numpy
 pymongo==3.3.0
