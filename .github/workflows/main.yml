@@ -34,6 +34,14 @@ jobs:
       run: |
         jf pipc --server-id-resolve=$SERVER_ID --repo-resolve=alpha-pypi-virtual                                                                                                                                                                                                                                                                                                 
         # Build the python project
-        jf pip install . --build-name my-build --build-number 1
-          
+        jf pipi ./requirements.txt --build-name ${{github.run_name}} --build-number ${{github.run_number}}
+        
+    - name: Step7 - Publish to RT
+      run: |
+        # Add env vars
+        jf rt bce
+        # Collect VCS details from git and add them to the build
+        jf rt bag
+        #Publish build-info
+        jf rt bp
             
