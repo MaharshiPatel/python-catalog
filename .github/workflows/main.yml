@@ -28,16 +28,15 @@ jobs:
     - name: Ping JFrog CLI
       run: jf rt ping
 
-    - name: Step5- Run Python build
+    - name: Run Python build and publish
       env:
         SERVER_ID: rtsaas
       run: |
         jf pipc --server-id-resolve=$SERVER_ID --repo-resolve=alpha-pypi-virtual                                                                                                                                                                                                                                                                                                 
         # Build the python project
-        jf rt pipi . --build-name test --build-number 3
         jf rt pipi -r requirements.txt --module=jfrog-python-example
         
-    - name: Step7 - Publish to RT
+    - name: Publish Build-info to RT
       run: |
         # Add env vars
         jf rt bce
