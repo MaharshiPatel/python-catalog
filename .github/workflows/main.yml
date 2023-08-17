@@ -34,11 +34,11 @@ jobs:
       run: |
         jf pipc --server-id-resolve=$SERVER_ID --repo-resolve=alpha-pypi-virtual                                                                                                                                                                                                                                                                                                 
         # Build the python project
-        jf rt pipi -r requirements.txt
+        jf rt pipi -r requirements.txt --module=catalog-py
         # Package the project, create distribution archives (tar.gz and whl):
         python setup.py sdist bdist_wheel
         # Upload the packages to the pypi repository in Artifactory:
-        jf rt u dist/ pypi/
+        jf rt u dist/ pypi/ --module=catalog-py
         
     - name: Publish Build-info to RT
       run: |
