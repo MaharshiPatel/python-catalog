@@ -1,3 +1,5 @@
 PyYAML==5.2
-PyJWT==1.7.1
 nltk
+numpy
+pymongo==3.3.0
+django==3.2.20
