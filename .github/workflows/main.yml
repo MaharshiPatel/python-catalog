@@ -34,7 +34,7 @@ jobs:
       run: |
         jf pipc --server-id-resolve=$SERVER_ID --repo-resolve=alpha-pypi-virtual                                                                                                                                                                                                                                                                                                 
         # Build the python project
-        jf rt pipi -r requirements.txt --module=jfrog-python-example
+        jf rt pipi -r requirements.txt
         
     - name: Publish Build-info to RT
       run: |
