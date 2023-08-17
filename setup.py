@@ -3,7 +3,7 @@
 from setuptools import setup
 
 setup(
-    name='jfrog-python-example',
+    name='catalog-py',
     version='1.0',
     description='Project example for building Python project with JFrog products',
     author='JFrog',
