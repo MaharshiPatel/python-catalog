@@ -32,7 +32,8 @@ jobs:
       env:
         SERVER_ID: rtsaas
       run: |
-        jf pipc --server-id-resolve=$SERVER_ID --repo-resolve=alpha-pypi-virtual                                                                                                                                                                                                                                                                                                 
+        jf pipc --server-id-resolve=$SERVER_ID --repo-resolve=auth-python-virtual  
+        
         # Build the python project
         jf rt pipi -r requirements.txt --module=jfrog-python-example
         
