@@ -24,9 +24,11 @@ steps:
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
 
-- task: PowerShell@2
+- task: CmdLine@2
   inputs:
-    filePath: 'python.sh'
+    script: |
+      pwd
+      sh python.sh
     failOnStderr: true
 - task: JFrogPublishBuildInfo@1
   inputs:
