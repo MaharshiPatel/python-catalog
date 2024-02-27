@@ -3,3 +3,4 @@ nltk
 numpy
 pymongo==3.3.0
 django==3.2.20
+PyJWT==1.7.1
