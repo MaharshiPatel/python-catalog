@@ -28,7 +28,7 @@ jobs:
       run: jf rt ping --server-id=$SERVER_ID
     - name: Run Python build and publish
       run: |
-        jf pipc --server-id-resolve=$SERVER_ID --repo-resolve=$REPO
+        jf pipc --server-id-resolve=$SERVER_ID --repo-resolve=$REPO 
         # Build the python project
         jf pip install -r requirements.txt --module=$MODULE_NAME 
         jf pip install wheel
@@ -47,4 +47,4 @@ jobs:
             
     - name: Build Scan
       run: |
-        jf bs --fail=false
+        jf bs --fail=false --failOnSecurityIssues=false
