@@ -25,12 +25,18 @@ jobs:
     - name: Run Python build and publish
       run: |
         jf pipc --server-id-resolve=$SERVER_ID --repo-resolve=$REPO
+        
+        python3 -m pip install --upgrade pip setuptools wheel sigstore
+        wheel -h
+        pip show setuptools
+        echo $VIRTUAL_ENV
+        
         # Build the python project
         jf pip install -r requirements.txt --module=$MODULE_NAME 
-        jf pip install wheel
+    
         # Package the project, create distribution archives (tar.gz and whl):
         python3 setup.py sdist bdist_wheel
-        ls ./
+       
         # cd dist && echo "hashes=$(sha256sum * | base64 -w0)" >> $GITHUB_OUTPUT
         jf rt u dist/ $REPO/pypi/ --module=$MODULE_NAME 
         
