@@ -21,7 +21,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - uses: actions/checkout@v3
     - name: Setup JFrog CLI 
-      uses: jfrog/setup-jfrog-cli@v3.4.0
+      uses: jfrog/setup-jfrog-cli@v4
     - name: JFrog CLI config
       run: jf c add $SERVER_ID --url=$JF_URL --access-token=$JF_ACCESS_TOKEN --interactive=false
     - name: Ping JFrog CLI
