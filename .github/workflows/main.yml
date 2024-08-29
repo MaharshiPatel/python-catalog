@@ -34,6 +34,7 @@ jobs:
         jf pip install wheel
         # Package the project, create distribution archives (tar.gz and whl):
         python3 setup.py sdist bdist_wheel
+        cd dist && echo "hashes=$(sha256sum * | base64 -w0)" >> $GITHUB_OUTPUT
         jf rt u dist/ $REPO/pypi/ --module=$MODULE_NAME 
         
     - name: Publish Build-info to RT
