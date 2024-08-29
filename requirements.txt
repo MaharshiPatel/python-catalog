@@ -3,4 +3,4 @@ nltk
 numpy
 pymongo==3.3.0
 django==3.2.20
-requests==2.31.0
+requests==2.32.0
