@@ -51,4 +51,4 @@ jobs:
             
     - name: Build Scan
       run: |
-        jf bs --fail=false
+        jf bs --fail=false --vuln
