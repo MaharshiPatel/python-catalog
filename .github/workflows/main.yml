@@ -1,6 +1,5 @@
 name: catalog-ci-job
-on: [push]
-  
+on: push  
        
 jobs: 
   build:
