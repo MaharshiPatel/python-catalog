@@ -21,10 +21,15 @@ jobs:
       run: jf c add $SERVER_ID --url=$JF_URL --access-token=$JF_ACCESS_TOKEN --interactive=false
     - name: Ping JFrog CLI
       run: jf rt ping --server-id=$SERVER_ID
+    - name: configure jfrog environment with pypi repository
+      run: | 
+        jf pipc --server-id-resolve=$SERVER_ID --repo-resolve=$REPO
+
+    - name: "Curation: audit" # https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-security/cli-for-jfrog-curation
+      run: |
+          jf ca --format=table --threads=100
     - name: Run Python build and publish
       run: |
-        jf pipc --server-id-resolve=$SERVER_ID --repo-resolve=$REPO
-        
         python3 -m pip install --upgrade pip setuptools wheel sigstore
         wheel -h
         pip show setuptools
@@ -38,7 +43,7 @@ jobs:
        
         # cd dist && echo "hashes=$(sha256sum * | base64 -w0)" >> $GITHUB_OUTPUT
         jf rt u dist/ $REPO/pypi/ --module=$MODULE_NAME 
-        
+          
     - name: Publish Build-info to RT
       run: |
         # Add env vars
