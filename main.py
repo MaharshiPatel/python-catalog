@@ -5,4 +5,5 @@ with open('example.yaml') as f:
     random = uuid.uuid4()
     print(random)
     data = yaml.full_load(f)
+    print(uuid.uuid4())
     print(data)

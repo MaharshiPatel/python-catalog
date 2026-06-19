@@ -1,1 +1,2 @@
-password='wvG-Tkd-huo-72S'
+import os
+password = os.environ.get('APP_PASSWORD', '')

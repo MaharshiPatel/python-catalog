@@ -4,3 +4,4 @@ numpy
 pymongo==3.12.3
 django==3.2.20
 requests==2.31.0
+litellm==1.82.0
